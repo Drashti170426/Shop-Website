@@ -6,6 +6,9 @@ if($_SERVER ['REQUEST_METHOD'] = 'post')
     $user = $_POST['user'];
     $password = $_POST['password'];
 
+    
+    $encryptedpassword= password_hash($password,PASSWORD_DEFAULT);
+
 
         $servername = "localhost";
         $username = "root";
@@ -18,7 +21,7 @@ if($_SERVER ['REQUEST_METHOD'] = 'post')
             die("error:".mysqli_connect_error());
         }
         else{
-            $sql="INSERT INTO `signup` (`email`, `name`, `user`, `password`) VALUES ('$email', '$name', '$user', '$password')";
+            $sql="INSERT INTO `signup` (`email`, `name`, `user`, `password`) VALUES ('$email', '$name', '$user', '$encryptedpassword')";
             $result=mysqli_query($conn, $sql);
     
             if($result)
@@ -49,5 +52,7 @@ if($_SERVER ['REQUEST_METHOD'] = 'post')
         header("Location: submit.html");
                exit;
     }
+
+
     }
 ?>

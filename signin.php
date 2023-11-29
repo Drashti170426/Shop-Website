@@ -17,18 +17,22 @@ if($_SERVER ['REQUEST_METHOD'] = 'post')
         die("error:" . mysqli_connect_error());
     } else {
 
-        $sql = "SELECT * FROM signup WHERE user='$user' AND password='$password'";
+        $sql = "SELECT * FROM signup WHERE user='$user'";
         $result = mysqli_query($conn, $sql);
 
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
+        if ($result && mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $decrptedpassword = password_verify($password, $row['password']);
+    
+            if ($decrptedpassword) {
                 header("Location: index.html");
                 exit;
             } else {
-                header("Location: signin.html");
+                echo "Invalid login credentials";
+                header("Location: login.html");
                 exit;
             }
-        } 
+        }
     }
 }
 ?>
