@@ -1,3 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ Shop/about</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section>
+        <!--header-->
+        <header>
+            <a class="logo">XYZ<span>Shop</span></a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="SignUp.html">Sign Up</a></li>
+                <li><a href="SignIn.html">Sign In</a></li>
+                <li><a href="Adminlog.html">Admin</a></li>
+                <li><a href="logout.php">Sign Out</a></li>
+            </ul>
+</header>
+
+</body>
+</html>
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -39,11 +66,16 @@ if ($num > 0) {
         </tr>';
     }
 
+    
+
+
     echo '</table>';
 } else {
     echo 'No records found.';
 }
 
-echo '</body>
+echo '
+
+</body>
 </html>';
 ?>
