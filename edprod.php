@@ -37,37 +37,42 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM signup";
-
+$sql = "SELECT * FROM products";
 $result = mysqli_query($conn, $sql);
 $num = mysqli_num_rows($result);
 
 echo '<html>
 <head>
-<link rel="stylesheet" href="css/styleAdmin.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>';
 
 if ($num > 0) {
     echo '<table>
         <tr>
-            <th>Email</th>
-            <th>name</th>
-            <th>User</th>
-            <th>Passwords</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Colour</th>
+            <th>Launch Date</th>
+            <th>Action</th>
         </tr>';
 
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<tr>
-            <td>' . $row['email'] . '</td>
-            <td>' . $row['name'] . '</td>
-            <td>' . $row['user'] . '</td>
-            <td>' . $row['password'] . '</td>
+            <td>' . $row['proname'] . '</td>
+            <td>' . $row['description'] . '</td>
+            <td>' . $row['price'] . '</td>
+            <td>' . $row['colour'] . '</td>
+            <td>' . $row['launch'] . '</td>
+            <td>
+                <form method="post">
+                    <button type="submit" name="edit" value="' . $row['proname'] . '">Edit</button>
+                    <button type="submit" name="delete" value="' . $row['proname'] . '">Delete</button>
+                </form>
+            </td>
         </tr>';
     }
-
-    
-
 
     echo '</table>';
 } else {
@@ -76,4 +81,18 @@ if ($num > 0) {
 
 echo '</body>
 </html>';
+
+if (isset($_POST['delete'])) {
+    $productId = $_POST['delete'];
+    $deleteSql = "DELETE FROM products WHERE proname= '$productId'";
+    $deleteResult = mysqli_query($conn, $deleteSql);
+    header("Location: ".$_SERVER['PHP_SELF']);
+    exit();
+}
+
+if (isset($_POST['edit'])) {
+    $productId = $_POST['edit'];
+    header("Location: 2ndtrial.php?proname=$productId");
+    exit();
+}
 ?>

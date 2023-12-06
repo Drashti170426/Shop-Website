@@ -5,6 +5,7 @@ if($_SERVER ['REQUEST_METHOD'] = 'post')
     $name = $_POST['name'];
     $user = $_POST['user'];
     $password = $_POST['password'];
+    $image = $_POST['image'];
 
     
     $encryptedpassword= password_hash($password,PASSWORD_DEFAULT);
@@ -21,7 +22,7 @@ if($_SERVER ['REQUEST_METHOD'] = 'post')
             die("error:".mysqli_connect_error());
         }
         else{
-            $sql="INSERT INTO `signup` (`email`, `name`, `user`, `password`) VALUES ('$email', '$name', '$user', '$encryptedpassword')";
+            $sql="INSERT INTO `signup` (`email`, `name`, `user`, `password`, `image`) VALUES ('$email', '$name', '$user', '$encryptedpassword', '$image')";
             $result=mysqli_query($conn, $sql);
     
             if($result)

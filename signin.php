@@ -29,7 +29,7 @@ if($_SERVER ['REQUEST_METHOD'] = 'post')
                 exit;
             } else {
                 echo "Invalid login credentials";
-                header("Location: login.html");
+                header("Location: signin.html");
                 exit;
             }
         }

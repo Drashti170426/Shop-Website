@@ -20,17 +20,21 @@
                 <li><a href="SignUp.html">Sign Up</a></li>
                 <li><a href="SignIn.html">Sign In</a></li>
                 <li><a href="Adminlog.html">Admin</a></li>
+                <li><a href="logout.php">Sign Out</a></li>
             </ul>
         </header>
     </section>
     <div class="texts">
         <h1 class="logo1">Sign<span>Up</span></h1>
     </div>
-    <form action="signup.php" method="POST">
+    <form action="signup.php" method="POST" autocomplete="off" enctype="multipart/from-data">
     <section>
         
         <div class="login-form">
             <legend >Information</legend>
+
+            <br> <label for="image">Upload Profile Picture</label>
+            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
             <br> <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
     
@@ -50,8 +54,10 @@
                 <li>1 Uppercase letter</li>
                 <li>1 Special Character</li>
                 <li>Atleast 8 Characters</li>
-            </ol>
 
+            </ol><br>
+
+            <p>Existing User? <a href="signin.html">Sign In</a></p><br>
             <button type="submit">Submit</button>
     </div>
     </section>
