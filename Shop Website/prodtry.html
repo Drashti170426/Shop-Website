@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ Shop/products</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Add some styling to make the editable content visually distinct */
+        [contenteditable="true"] {
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <!--header-->
+        <header>
+            <a class="logo">XYZ<span>Shop</span></a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="SignUp.html">Sign Up</a></li>
+                <li><a href="SignIn.html">Sign In</a></li>
+                <li><a href="Adminlog.html">Admin</a></li>
+                <li><a href="logout.php">Sign Out</a></li>
+
+            </ul>
+        </header>
+
+        <div class="texts">
+            <h1>Prod<span>ucts</span></h1>
+            <p>
+                Edit product details below:
+            </p>
+        </div>
+
+        <div class="background_image">
+            <img src="image/bg image.png">
+            <!--source:   https://www.nakshtechnologies.com/wp-content/uploads/2021/10/732-7329685_e-commerce-website-background-image-e-commerce-website-removebg-previ-->
+        </div>
+
+    </section>
+
+    <div class="phone">
+        <div class="phone_box">
+            <!-- Repeat the following structure for each product -->
+            <div class="phone_card">
+                <img src="image/Nokia_3310.png">
+                <h1 contenteditable="true" id="product1">Nokia 3310</h1>
+                <p contenteditable="true" id="description1">
+                    The 3310 is known for having many features that were rare for the time. These include many utilities, such as a calculator, Nokia network monitor, stop watch and a reminder function. It has four games: Pairs II, Space Impact, Bantumi, and the hugely popular Snake II.
+                </p>
+            </div>
+            <!-- ... Repeat for other products ... -->
+        </div>
+    </div>
+
+    <!-- JavaScript to dynamically update contenteditable elements -->
+    <script>
+        // Add an event listener to update the content on blur
+        document.addEventListener('DOMContentLoaded', function () {
+            const editableElements = document.querySelectorAll('[contenteditable="true"]');
+            
+            editableElements.forEach(function (element) {
+                element.addEventListener('blur', function () {
+                    // Save the updated content to a database or perform other actions as needed
+                    saveContent(element.id, element.innerHTML);
+                });
+            });
+        });
+
+        // Function to save content (replace this with your server-side logic)
+        function saveContent(id, content) {
+            // Use AJAX or other methods to send the data to the server (PHP in this case)
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'save_content.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.send(id=${id}&content=${encodeURIComponent(content)});
+        }
+    </script>
+
+    <!--Footer-->
+    <footer class="footer">
+        <div class="main">
+            <div class="row">
+                <div class="footer_col">
+                    <!-- ... (unchanged) ... -->
+                </div>
+
+                <div class="footer_col">
+                    <!-- ... (unchanged) ... -->
+                </div>
+                <div class="footer_col">               
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

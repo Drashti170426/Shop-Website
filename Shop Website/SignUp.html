@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    
+    <section>
+        <!--header-->
+        <header>
+            <a class="logo">XYZ<span>Shop</span></a>   
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="SignUp.html">Sign Up</a></li>
+                <li><a href="SignIn.html">Sign In</a></li>
+                <li><a href="Adminlog.html">Admin</a></li>
+                <li><a href="logout.php">Sign Out</a></li>
+            </ul>
+        </header>
+    </section>
+    <div class="texts">
+        <h1 class="logo1">Sign<span>Up</span></h1>
+    </div>
+    <form action="signup.php" method="POST" autocomplete="off" enctype="multipart/from-data">
+    <section>
+        
+        <div class="login-form">
+            <legend >Information</legend>
+
+            <br> <label for="image">Upload Profile Picture</label>
+            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
+            <br> <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+    
+           <br> <label for="email">Email:</label>
+           <input type="email" id="email" name="email" required>
+
+           <p>Username can only contain letters.</p>
+
+           <br><label for="user">Username:</label>
+           <input type="text" id="user" name="user" required>
+
+           <br> <label for="password">Password</label>
+           <input type="password" id="password" name="password" required>
+           <p>Password must contain</p>
+            <ol type="1">
+                <li>1 Uppercase letter</li>
+                <li>1 Special Character</li>
+                <li>Atleast 8 Characters</li>
+
+            </ol><br>
+
+            <p>Existing User? <a href="signin.html">Sign In</a></p><br>
+            <button type="submit">Submit</button>
+    </div>
+    </section>
+
+    <a href="submit.html"><input type="submit" value="Submit"></a>
+</form>
+    <!--footer-->
+    <footer class="footer">
+        <div class="main">
+            <div class="row">
+                <div class="footer_col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="support.html">our services</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer_col">
+                    <h4>Get Help</h4>
+                    <ul>
+                        <li><a href="support.html">shiping</a></li>
+                        <li><a href="support.html">returns</a></li>
+                        <li><a href="support.html">payment options</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer_col">               
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
